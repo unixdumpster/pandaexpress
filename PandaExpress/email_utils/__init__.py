@@ -1,2 +1,0 @@
-from email_utils.generator import generate_email
-from email_utils.parser import parse_codes
