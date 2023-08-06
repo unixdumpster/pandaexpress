@@ -14,5 +14,5 @@ RUN pip install selenium==4.9.1
 RUN pip install requests==2.30.0
 COPY --from=build /opt/chrome-linux /opt/chrome
 COPY --from=build /opt/chromedriver /opt/
-COPY /panda-express/main.py ./
+COPY main.py ./
 CMD [ "main.handler" ]

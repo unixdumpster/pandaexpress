@@ -1,6 +1,8 @@
 import re
 import requests
+
 from tempfile import mkdtemp
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -38,7 +40,7 @@ def handler(event=None, context=None):
            scraper.quit()
            return {"statusCode": 100, "body": "FAIL"}
     
-    # # # fill in form using generated email
+    # fill in form using generated email
     addr = generate_email()
     scraper.find_element(By.XPATH, "//input[@id='S000057']").send_keys(addr)
     scraper.find_element(By.XPATH, "//input[@id='S000064']").send_keys(addr)
