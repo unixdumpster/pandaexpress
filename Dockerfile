@@ -12,6 +12,7 @@ RUN yum install atk cups-libs gtk3 libXcomposite alsa-lib \
     xorg-x11-xauth dbus-glib dbus-glib-devel -y
 RUN pip install selenium==4.9.1
 RUN pip install requests==2.30.0
+RUN pip install boto3==1.28.20
 COPY --from=build /opt/chrome-linux /opt/chrome
 COPY --from=build /opt/chromedriver /opt/
 COPY main.py ./

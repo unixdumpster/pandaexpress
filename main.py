@@ -1,3 +1,4 @@
+import boto3
 import re
 import requests
 
@@ -54,6 +55,10 @@ def handler(event=None, context=None):
 
     scraper.close()
     scraper.quit()
+    
+    # publish to SNS
+    client = boto3.client("sns")
+
     response = {
         "statusCode": 200,
         "body": code
