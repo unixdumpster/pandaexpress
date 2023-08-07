@@ -1,4 +1,5 @@
 import boto3
+import json
 import re
 import requests
 
@@ -58,13 +59,16 @@ def handler(event=None, context=None):
     
     # publish to SNS
     client = boto3.client("sns")
+    sns_response = client.publish(
+        TopicArn="",
+        Message = json.dumps(code)
+    )
 
-    response = {
+    return {
         "statusCode": 200,
-        "body": code
+        "body": json.dumps(sns_response)
     }
 
-    return response
 
 def generate_email():
     URL = 'https://www.1secmail.com/api/v1/'
